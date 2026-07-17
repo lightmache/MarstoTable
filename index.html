@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project ROMANA — The Dr. Eline Oslo Saga</title>
+<title>Project WHATNEY — The Dr. Eline Oslo Saga</title>
 <meta name="description" content="Dr. Eline Oslo bridges hydrogen UAV engineering and fermentation science for the NASA Mars to Table Challenge. Resilience-as-a-Service.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,12 +38,10 @@
 </div>
 
 <header class="site-header">
-  <span class="wordmark">ROMANA</span>
+  <span class="wordmark">WHATNEY</span>
   <nav>
     <a href="#concept">Concept</a>
     <a href="#force">The Force</a>
-    <a href="#bridge">Bridge</a>
-    <a href="#stack">Stack</a>
     <a href="#rover">Rusty Rover</a>
   </nav>
 </header>
@@ -52,7 +50,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="eyebrow">Project ROMANA — NASA Mars to Table Challenge</p>
+    <p class="eyebrow">Project WHATNEY — NASA Mars to Table Challenge</p>
     <h1 class="hero-title">
       Dr. Eline Oslo builds<br>
       <span class="ink-stroke">resilience</span>, not efficiency.
@@ -84,16 +82,15 @@
     <p class="lede">
       A hydrogen UAV and a fermentation tank are, underneath, the same argument: a closed
       loop trying to stay alive inside conditions it cannot fully control. Eline's work
-      began in aerospace — hydrogen fuel cells, flight controllers, the unglamorous math
-      of keeping something airborne when the wind doesn't read the flight plan. She moved
-      it sideways into coffee and beer, where fermentation runs on the same currency —
-      temperature drift, chemical noise, a system that has to hold together without a
-      human hand steadying it constantly.
+      began in aerospace — the unglamorous work of keeping something airborne when the
+      wind doesn't read the flight plan. She moved it sideways into coffee and beer,
+      where fermentation runs on the same currency — drift, noise, a system that has to
+      hold together without a human hand steadying it constantly.
     </p>
     <p class="lede">
       <strong>Resilience-as-a-Service</strong> is the name for that move. Not a product,
       not a slogan — a design stance. Every system Eline builds assumes the data will be
-      messy, the sensor will drop a reading, the Martian afternoon will not match the
+      messy, the reading will be wrong, the Martian afternoon will not match the
       simulation. The job isn't to eliminate that uncertainty. It's to build something
       that keeps working inside it.
     </p>
@@ -125,10 +122,9 @@
         <p class="theme-no">Observasjon</p>
         <h3>Observability-as-Infrastructure</h3>
         <p>
-          Every fermenting tank is a biological black box with a flight recorder bolted
-          on. Temperature, pH, gas exchange, microbial load — ingested continuously,
-          not sampled once and hoped for. The telemetry <em>is</em> the infrastructure,
-          not a report generated after the fact.
+          Every fermenting tank is a black box with a flight recorder bolted on.
+          Watching it closely, continuously, is not a report generated after the
+          fact — it's the infrastructure itself.
         </p>
       </article>
       <article class="theme">
@@ -136,9 +132,8 @@
         <h3>The Small Win Philosophy</h3>
         <p>
           Martian infrastructure won't arrive as one grand system. It arrives as a
-          hundred small, realistic wins — a sensor that survives a dust storm, a recipe
-          that ferments correctly at the wrong pressure — each one built to make the
-          next person's job a little easier than hers was.
+          hundred small, realistic wins — each one built to make the next person's
+          job a little easier than hers was.
         </p>
       </article>
       <article class="theme">
@@ -160,125 +155,23 @@
     </svg>
   </div>
 
-  <!-- TECHNICAL BRIDGE / CONSOLE -->
-  <section class="bridge" id="bridge">
-    <p class="label">The Technical Bridge</p>
-    <h2>Same console. Two atmospheres.</h2>
-    <p class="lede">
-      This is the argument made literal. Flip the switch — the dashboard doesn't change
-      shape, only its labels. That's the point: a UAV's flight parameters and a fermentation
-      tank's biological parameters are read by the same kind of instrument, asking the same
-      kind of question — <em>is this system still inside its survivable range?</em>
-    </p>
-
-    <div class="console">
-      <div class="console-toggle" role="group" aria-label="Console mode">
-        <button class="toggle-btn active" data-mode="flight">Flight Console</button>
-        <button class="toggle-btn" data-mode="ferment">Ferment Console</button>
-      </div>
-
-      <div class="console-grid">
-        <div class="console-row">
-          <span class="param-flight">Fuel cell stack temperature</span>
-          <span class="param-ferment">Fermentation vessel temperature</span>
-          <span class="reading">31.4 °C — nominal band</span>
-        </div>
-        <div class="console-row">
-          <span class="param-flight">IMU drift / attitude noise</span>
-          <span class="param-ferment">pH drift / probe noise</span>
-          <span class="reading">± 0.03 — within tolerance</span>
-        </div>
-        <div class="console-row">
-          <span class="param-flight">Battery reserve vs. fuel cell redundancy</span>
-          <span class="param-ferment">Yeast pitch rate vs. microbial redundancy</span>
-          <span class="reading">2 of 2 paths healthy</span>
-        </div>
-        <div class="console-row">
-          <span class="param-flight">Telemetry packet loss</span>
-          <span class="param-ferment">Sensor dropout in cultivation tank</span>
-          <span class="reading">0.4% loss — logged, not alarmed</span>
-        </div>
-        <div class="console-row">
-          <span class="param-flight">Wind gust / control surface correction</span>
-          <span class="param-ferment">CO₂ off-gas spike / valve correction</span>
-          <span class="reading">auto-corrected in 1.2s</span>
-        </div>
-      </div>
-      <p class="console-caption">
-        <span id="console-caption-text">Reading the airframe.</span>
-      </p>
-    </div>
-
-    <p class="lede">
-      Neither console is trying to hit a perfect number. Both are asking whether the
-      system stays inside a survivable band while something it doesn't control —
-      weather, wild yeast, a dust storm — pushes on it. Efficiency wants the tightest
-      possible tolerance. Resilience wants the widest tolerance that still works.
-      On Mars, that's the only trap worth avoiding.
-    </p>
-  </section>
-
-  <div class="divider divider-alt" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 C150,5 300,55 450,30 C600,5 750,55 900,30 C1050,5 1150,50 1200,30" />
-    </svg>
-  </div>
-
-  <!-- STACK -->
-  <section class="stack" id="stack">
-    <p class="label">What It's Built On</p>
-    <h2>The ingest layer.</h2>
-    <p class="lede">
-      Underneath the saga is a real, containerized pipeline — the same kind of
-      infrastructure a Martian outpost would need to trust its own data.
-    </p>
-    <div class="stack-list">
-      <div class="stack-item">
-        <span class="stack-name">FastAPI</span>
-        <span class="stack-desc">the ingest surface — every reading enters through one disciplined door</span>
-      </div>
-      <div class="stack-item">
-        <span class="stack-name">Python</span>
-        <span class="stack-desc">the glue between sensor, model, and record</span>
-      </div>
-      <div class="stack-item">
-        <span class="stack-name">PostgreSQL / pgvector</span>
-        <span class="stack-desc">structured history, plus similarity search across every batch that came before</span>
-      </div>
-      <div class="stack-item">
-        <span class="stack-name">MinIO</span>
-        <span class="stack-desc">object storage for the raw, unglamorous telemetry nobody looks at until something goes wrong</span>
-      </div>
-      <div class="stack-item">
-        <span class="stack-name">Docker Compose</span>
-        <span class="stack-desc">the whole lab, reproducible on a laptop or a lander</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 C150,55 300,5 450,30 C600,55 750,5 900,30 C1050,55 1150,10 1200,30" />
-    </svg>
-  </div>
-
   <!-- RUSTY ROVER VIGNETTE -->
   <section class="rover" id="rover">
     <p class="label">A Scene</p>
     <h2>The Rusty Rover, past midnight.</h2>
     <p class="vignette">
-      The whiteboard behind the bar still has last week's diagram on it — a fuel cell
-      stack, half-erased, with a coffee ring where someone's mug sat too long over the
-      redundancy calculation. Stockholm is asleep on the stool that used to be reserved
-      for regulars, unbothered by the argument currently happening over him.
+      The whiteboard behind the bar still has last week's diagram on it, half-erased,
+      with a coffee ring where someone's mug sat too long. Stockholm is asleep on the
+      stool that used to be reserved for regulars, unbothered by the argument currently
+      happening over him.
     </p>
     <p class="vignette">
-      "It's not that the sensor's wrong," Eline says, tapping the dead spot on the
-      chart. "It's that it's <em>honest</em>. That's a real dropout. The system needs to
-      survive not knowing, for four seconds, whether the tank is fermenting or dying."
+      "It's not that the reading's wrong," Eline says, tapping the dead spot on the
+      chart. "It's that it's <em>honest</em>. The system needs to survive not knowing,
+      for a few seconds, whether the tank is thriving or dying."
     </p>
     <p class="vignette">
-      Someone across the table calls the whole rig <em>Texas</em> — too big, too loud,
+      Someone across the table calls the whole idea <em>Texas</em> — too big, too loud,
       more ambition than the room can hold. Eline doesn't disagree. She just points out
       that Mars won't care how big the idea was. It'll only care whether the small,
       unglamorous version of it survives the trip.
@@ -290,7 +183,7 @@
 
 <footer class="site-footer">
   <p class="footer-line">Resilience-as-a-Service.</p>
-  <p class="footer-sub">Project ROMANA · NASA Mars to Table Challenge · Dr. Eline Oslo Saga</p>
+  <p class="footer-sub">Project WHATNEY · NASA Mars to Table Challenge · Dr. Eline Oslo Saga</p>
 </footer>
 
 <script src="script.js"></script>
