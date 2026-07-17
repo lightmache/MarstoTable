@@ -1,15 +1,12 @@
 :root {
   --graphite: #12151A;
-  --graphite-soft: #1B2028;
   --paper: #EDEFF2;
   --steel: #8A94A6;
   --blueprint: #4A8FD9;
   --signal: #3FB68A;
-  --ink: #12151A;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -20,15 +17,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: inherit; }
-::selection { background: var(--blueprint); color: var(--graphite); }
-
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 1.75rem clamp(1.5rem, 6vw, 4rem);
-  border-bottom: 1px solid rgba(237, 239, 242, 0.1);
 }
 
 .wordmark {
@@ -38,21 +28,9 @@ a { color: inherit; }
   font-size: 1rem;
 }
 
-.site-header nav { display: flex; gap: clamp(1rem, 3vw, 2rem); }
-.site-header nav a {
-  text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.05em;
-  color: var(--steel);
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-}
-.site-header nav a:hover { color: var(--blueprint); border-color: var(--blueprint); }
-
 .hero {
-  padding: clamp(4rem, 12vh, 8rem) clamp(1.5rem, 6vw, 4rem);
-  max-width: 1000px;
+  padding: clamp(2rem, 6vh, 3.5rem) clamp(1.5rem, 6vw, 4rem) 0;
+  max-width: 900px;
 }
 
 .eyebrow {
@@ -60,109 +38,38 @@ a { color: inherit; }
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   color: var(--signal);
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
 }
 
 .hero-title {
-  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
   font-weight: 600;
   line-height: 1.12;
-  margin: 0 0 1.5rem;
-  color: var(--paper);
-}
-
-.hero-sub {
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  max-width: 60ch;
-  color: var(--steel);
   margin: 0;
-}
-
-.block {
-  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 4rem);
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.block.alt { background: var(--graphite-soft); max-width: 100%; }
-.block.alt > * { max-width: 1000px; margin-left: auto; margin-right: auto; }
-
-.label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  color: var(--blueprint);
-  margin: 0 0 0.75rem;
-}
-
-.block h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 600;
-  margin: 0 0 1.5rem;
-  max-width: 22ch;
   color: var(--paper);
 }
 
-.body-text {
-  font-size: 1.05rem;
-  max-width: 65ch;
-  color: var(--steel);
-  margin: 0 0 1rem;
-}
-
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-@media (max-width: 640px) { .stack-grid { grid-template-columns: 1fr; } }
-
-.stack-card {
+.globe-stage {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 1.25rem;
-  border: 1px solid rgba(237, 239, 242, 0.12);
-  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  height: min(60vh, 560px);
+  width: 100%;
 }
-.stack-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
-  color: var(--blueprint);
-  font-size: 0.95rem;
-}
-.stack-desc { color: var(--steel); font-size: 0.9rem; }
 
-.bridge-table {
-  margin-top: 2rem;
-  border: 1px solid rgba(237, 239, 242, 0.12);
-  border-radius: 4px;
-  overflow: hidden;
+#mars-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-.bridge-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 0.9rem 1.25rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  border-bottom: 1px solid rgba(237, 239, 242, 0.08);
-}
-.bridge-row:last-child { border-bottom: none; }
-.bridge-head {
-  background: rgba(74, 143, 217, 0.1);
-  color: var(--blueprint);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-.bridge-row:not(.bridge-head) span:first-child { color: var(--paper); }
-.bridge-row:not(.bridge-head) span:last-child { color: var(--signal); }
-@media (max-width: 640px) {
-  .bridge-row { grid-template-columns: 1fr; gap: 0.25rem; }
+
+.signup {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem clamp(1.5rem, 6vw, 4rem) clamp(3rem, 8vh, 5rem);
 }
 
 .signup-frame {
-  margin-top: 2rem;
   background: var(--paper);
   border-radius: 6px;
   padding: 0.5rem;
@@ -171,9 +78,8 @@ a { color: inherit; }
 .signup-frame iframe { width: 100%; border-radius: 4px; display: block; }
 
 .site-footer {
-  padding: 2.5rem clamp(1.5rem, 6vw, 4rem);
+  padding: 2rem clamp(1.5rem, 6vw, 4rem);
   text-align: center;
-  border-top: 1px solid rgba(237, 239, 242, 0.1);
 }
 .footer-sub {
   font-family: 'JetBrains Mono', monospace;
@@ -181,5 +87,3 @@ a { color: inherit; }
   color: var(--steel);
   margin: 0;
 }
-
-a:focus-visible { outline: 2px solid var(--blueprint); outline-offset: 3px; }

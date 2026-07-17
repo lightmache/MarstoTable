@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project WHATNEY — Technical Overview</title>
-<meta name="description" content="A resilience-first observability system bridging hydrogen UAV telemetry and fermentation monitoring, built for the NASA Mars to Table Challenge.">
+<title>Project WHATNEY</title>
+<meta name="description" content="NASA Mars to Table Challenge — Technical Overview. Resilience-first observability for closed-loop life support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,114 +14,30 @@
 
 <header class="site-header">
   <span class="wordmark">WHATNEY</span>
-  <nav>
-    <a href="#system">System</a>
-    <a href="#stack">Stack</a>
-    <a href="#bridge">Signal Bridge</a>
-    <a href="#signup">Follow</a>
-  </nav>
 </header>
 
 <main>
-
-  <!-- HERO -->
   <section class="hero">
     <p class="eyebrow">NASA Mars to Table Challenge — Technical Overview</p>
     <h1 class="hero-title">Resilience-first observability<br>for closed-loop life support.</h1>
-    <p class="hero-sub">
-      A containerized ingest pipeline built to treat sensor noise, drift, and dropout
-      as expected conditions — not failures — across both UAV flight systems and
-      fermentation-based food production.
-    </p>
   </section>
 
-  <!-- SYSTEM -->
-  <section class="block" id="system">
-    <p class="label">01 — The Problem</p>
-    <h2>Efficiency is a trap. Design for the survivable range.</h2>
-    <p class="body-text">
-      Martian environments don't produce clean telemetry. Sensors drop readings,
-      conditions drift outside modeled ranges, and the system still has to hold.
-      This project's premise: build for the widest tolerance that keeps working,
-      not the tightest number that looks good in a demo.
-    </p>
+  <section class="globe-stage">
+    <canvas id="mars-canvas"></canvas>
   </section>
 
-  <!-- STACK -->
-  <section class="block alt" id="stack">
-    <p class="label">02 — Architecture</p>
-    <h2>A single ingest path, fully containerized.</h2>
-    <div class="stack-grid">
-      <div class="stack-card">
-        <span class="stack-name">FastAPI</span>
-        <span class="stack-desc">ingest surface — every reading enters through one endpoint</span>
-      </div>
-      <div class="stack-card">
-        <span class="stack-name">PostgreSQL / pgvector</span>
-        <span class="stack-desc">structured history + similarity search across prior runs</span>
-      </div>
-      <div class="stack-card">
-        <span class="stack-name">MinIO</span>
-        <span class="stack-desc">object storage for raw sensor payloads</span>
-      </div>
-      <div class="stack-card">
-        <span class="stack-name">Docker Compose</span>
-        <span class="stack-desc">reproducible deployment, laptop to lander</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIGNAL BRIDGE -->
-  <section class="block" id="bridge">
-    <p class="label">03 — Signal Bridge</p>
-    <h2>Two domains, one instrument.</h2>
-    <p class="body-text">
-      Flight telemetry and fermentation telemetry ask the same question: is this
-      system still inside its survivable range? The mapping below is the core
-      technical claim of this project.
-    </p>
-    <div class="bridge-table">
-      <div class="bridge-row bridge-head">
-        <span>UAV Parameter</span>
-        <span>Fermentation Parameter</span>
-      </div>
-      <div class="bridge-row">
-        <span>Fuel cell stack temperature</span>
-        <span>Vessel temperature</span>
-      </div>
-      <div class="bridge-row">
-        <span>IMU drift / attitude noise</span>
-        <span>pH drift / probe noise</span>
-      </div>
-      <div class="bridge-row">
-        <span>Battery reserve vs. cell redundancy</span>
-        <span>Pitch rate vs. microbial redundancy</span>
-      </div>
-      <div class="bridge-row">
-        <span>Telemetry packet loss</span>
-        <span>Sensor dropout in tank</span>
-      </div>
-      <div class="bridge-row">
-        <span>Gust / control-surface correction</span>
-        <span>CO₂ spike / valve correction</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIGNUP -->
-  <section class="block alt signup" id="signup">
-    <p class="label">04 — Follow the Build</p>
-    <h2>Get updates as this ships.</h2>
+  <section class="signup" id="signup">
     <div class="signup-frame">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSerHW9pPHncb7aBdo-OnpSI7d49bzCQe9XL_efFgDRcFQSbOg/viewform?embedded=true" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
-  <p class="footer-sub">Project WHATNEY · NASA Mars to Table Challenge</p>
+  <p class="footer-sub">Project WHATNEY</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
