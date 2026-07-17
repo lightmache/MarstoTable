@@ -1,0 +1,8 @@
+*.txt
+secrets/
+.env
+*key*
+*creds*
+*.pem
+node_modules/
+.DS_Store
