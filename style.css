@@ -369,3 +369,27 @@ a:focus-visible {
   outline: 2px solid var(--aurora-mustard);
   outline-offset: 3px;
 }
+
+/* ============================================================
+   Newsletter signup
+   ============================================================ */
+.signup {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signup-frame {
+  margin-top: 2rem;
+  background: var(--bone-dim);
+  border: 1px solid rgba(27, 23, 18, 0.1);
+  border-radius: 6px;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.signup-frame iframe {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
