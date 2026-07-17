@@ -3,46 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project WHATNEY — The Dr. Eline Oslo Saga</title>
-<meta name="description" content="Dr. Eline Oslo bridges hydrogen UAV engineering and fermentation science for the NASA Mars to Table Challenge. Resilience-as-a-Service.">
+<title>Project WHATNEY — Technical Overview</title>
+<meta name="description" content="A resilience-first observability system bridging hydrogen UAV telemetry and fermentation monitoring, built for the NASA Mars to Table Challenge.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="sky" aria-hidden="true">
-  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <filter id="turbulence">
-        <feTurbulence id="turbNode" type="fractalNoise" baseFrequency="0.008 0.018" numOctaves="2" seed="7" result="noise"/>
-        <feColorMatrix in="noise" type="matrix"
-          values="0 0 0 0 0.76
-                  0 0 0 0 0.42
-                  0 0 0 0 0.15
-                  0 0 0 0.9 0"/>
-        <feComposite operator="in" in2="SourceGraphic"/>
-      </filter>
-    </defs>
-    <rect width="1600" height="900" fill="url(#fjordGradient)"/>
-    <defs>
-      <linearGradient id="fjordGradient" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#1B2A4A"/>
-        <stop offset="55%" stop-color="#22335A"/>
-        <stop offset="100%" stop-color="#141F38"/>
-      </linearGradient>
-    </defs>
-    <rect width="1600" height="900" filter="url(#turbulence)" opacity="0.55"/>
-  </svg>
-</div>
-
 <header class="site-header">
   <span class="wordmark">WHATNEY</span>
   <nav>
-    <a href="#concept">Concept</a>
-    <a href="#force">The Force</a>
-    <a href="#rover">Rusty Rover</a>
+    <a href="#system">System</a>
+    <a href="#stack">Stack</a>
+    <a href="#bridge">Signal Bridge</a>
+    <a href="#signup">Follow</a>
   </nav>
 </header>
 
@@ -50,97 +26,92 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="eyebrow">Project WHATNEY — NASA Mars to Table Challenge</p>
-    <h1 class="hero-title">
-      Dr. Eline Oslo builds<br>
-      <span class="ink-stroke">resilience</span>, not efficiency.
-    </h1>
+    <p class="eyebrow">NASA Mars to Table Challenge — Technical Overview</p>
+    <h1 class="hero-title">Resilience-first observability<br>for closed-loop life support.</h1>
     <p class="hero-sub">
-      A Stavanger engineer treats fermentation as flight telemetry.
+      A containerized ingest pipeline built to treat sensor noise, drift, and dropout
+      as expected conditions — not failures — across both UAV flight systems and
+      fermentation-based food production.
     </p>
-    <div class="hero-meta">
-      <span>Stavanger, Norway</span>
-      <span class="dot">·</span>
-      <span>Cat: Stockholm</span>
+  </section>
+
+  <!-- SYSTEM -->
+  <section class="block" id="system">
+    <p class="label">01 — The Problem</p>
+    <h2>Efficiency is a trap. Design for the survivable range.</h2>
+    <p class="body-text">
+      Martian environments don't produce clean telemetry. Sensors drop readings,
+      conditions drift outside modeled ranges, and the system still has to hold.
+      This project's premise: build for the widest tolerance that keeps working,
+      not the tightest number that looks good in a demo.
+    </p>
+  </section>
+
+  <!-- STACK -->
+  <section class="block alt" id="stack">
+    <p class="label">02 — Architecture</p>
+    <h2>A single ingest path, fully containerized.</h2>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <span class="stack-name">FastAPI</span>
+        <span class="stack-desc">ingest surface — every reading enters through one endpoint</span>
+      </div>
+      <div class="stack-card">
+        <span class="stack-name">PostgreSQL / pgvector</span>
+        <span class="stack-desc">structured history + similarity search across prior runs</span>
+      </div>
+      <div class="stack-card">
+        <span class="stack-name">MinIO</span>
+        <span class="stack-desc">object storage for raw sensor payloads</span>
+      </div>
+      <div class="stack-card">
+        <span class="stack-name">Docker Compose</span>
+        <span class="stack-desc">reproducible deployment, laptop to lander</span>
+      </div>
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 C150,55 300,5 450,30 C600,55 750,5 900,30 C1050,55 1150,10 1200,30" />
-    </svg>
-  </div>
-
-  <!-- CORE CONCEPT -->
-  <section class="concept" id="concept">
-    <p class="label">The Premise</p>
-    <h2>One system, two atmospheres.</h2>
-    <p class="lede">
-      A UAV and a fermentation tank both fight to survive conditions they can't
-      control. <strong>Resilience-as-a-Service</strong> means building for the mess,
-      not the clean simulation.
+  <!-- SIGNAL BRIDGE -->
+  <section class="block" id="bridge">
+    <p class="label">03 — Signal Bridge</p>
+    <h2>Two domains, one instrument.</h2>
+    <p class="body-text">
+      Flight telemetry and fermentation telemetry ask the same question: is this
+      system still inside its survivable range? The mapping below is the core
+      technical claim of this project.
     </p>
-  </section>
-
-  <div class="divider divider-alt" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 C150,5 300,55 450,30 C600,5 750,55 900,30 C1050,5 1150,50 1200,30" />
-    </svg>
-  </div>
-
-  <!-- THE FORCE / THEMES -->
-  <section class="force" id="force">
-    <p class="label">The Force</p>
-    <h2>Four ideas holding the saga together.</h2>
-
-    <div class="theme-grid">
-      <article class="theme">
-        <p class="theme-no">Uro</p>
-        <h3>Non-Determinism</h3>
-        <p>Mars hands you noise, not clean data. Design for the mess.</p>
-      </article>
-      <article class="theme">
-        <p class="theme-no">Observasjon</p>
-        <h3>Observability-as-Infrastructure</h3>
-        <p>Watching closely, always, <em>is</em> the infrastructure.</p>
-      </article>
-      <article class="theme">
-        <p class="theme-no">Den Lille Seieren</p>
-        <h3>The Small Win Philosophy</h3>
-        <p>A hundred small wins beat one grand system.</p>
-      </article>
-      <article class="theme">
-        <p class="theme-no">Terreng</p>
-        <h3>Norwegian Context</h3>
-        <p>Norway is Eline's imaginary Mars — close enough to test.</p>
-      </article>
+    <div class="bridge-table">
+      <div class="bridge-row bridge-head">
+        <span>UAV Parameter</span>
+        <span>Fermentation Parameter</span>
+      </div>
+      <div class="bridge-row">
+        <span>Fuel cell stack temperature</span>
+        <span>Vessel temperature</span>
+      </div>
+      <div class="bridge-row">
+        <span>IMU drift / attitude noise</span>
+        <span>pH drift / probe noise</span>
+      </div>
+      <div class="bridge-row">
+        <span>Battery reserve vs. cell redundancy</span>
+        <span>Pitch rate vs. microbial redundancy</span>
+      </div>
+      <div class="bridge-row">
+        <span>Telemetry packet loss</span>
+        <span>Sensor dropout in tank</span>
+      </div>
+      <div class="bridge-row">
+        <span>Gust / control-surface correction</span>
+        <span>CO₂ spike / valve correction</span>
+      </div>
     </div>
   </section>
-
-  <div class="divider" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,30 C150,55 300,5 450,30 C600,55 750,5 900,30 C1050,55 1150,10 1200,30" />
-    </svg>
-  </div>
-
-  <!-- RUSTY ROVER VIGNETTE -->
-  <section class="rover" id="rover">
-    <p class="label">A Scene</p>
-    <h2>The Rusty Rover, past midnight.</h2>
-    <p class="vignette">
-      Stockholm sleeps through the argument. "It's honest," Eline says of the
-      dead sensor. <em>Texas</em>, someone calls the whole idea. She agrees —
-      and builds the small version that survives the trip anyway.
-    </p>
-    <p class="vignette-sign">— logged the next morning, still on the whiteboard</p>
-  </section>
-
 
   <!-- SIGNUP -->
-  <section class="signup" id="signup">
-    <p class="label">Stay in the Loop</p>
-    <h2>Follow the WHATNEY log.</h2>
-    <p class="lede">Get updates as the Mars to Table journey continues.</p>
+  <section class="block alt signup" id="signup">
+    <p class="label">04 — Follow the Build</p>
+    <h2>Get updates as this ships.</h2>
     <div class="signup-frame">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSerHW9pPHncb7aBdo-OnpSI7d49bzCQe9XL_efFgDRcFQSbOg/viewform?embedded=true" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
@@ -149,10 +120,8 @@
 </main>
 
 <footer class="site-footer">
-  <p class="footer-line">Resilience-as-a-Service.</p>
-  <p class="footer-sub">Project WHATNEY · NASA Mars to Table Challenge · Dr. Eline Oslo Saga</p>
+  <p class="footer-sub">Project WHATNEY · NASA Mars to Table Challenge</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
